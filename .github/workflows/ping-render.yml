@@ -1,0 +1,17 @@
+name: Ping Render
+
+on:
+  schedule:
+    # Ejecutar cada 10 minutos para evitar hibernación de Render (15 min de inactividad)
+    # Intervalo más corto compensa retrasos de GitHub Actions
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render health endpoint
+        run: |
+          curl -fsS "https://tytreviewspt.onrender.com/api/health"
+          echo "✓ Render backend está activo"

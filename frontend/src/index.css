@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-night-600;
+  }
+
+  body {
+    @apply bg-night-900 text-gray-100 font-sans antialiased;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #121212 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+
+  /* Luxury Glass Card */
+  .luxury-card {
+    @apply bg-night-800/80 backdrop-blur-sm border border-night-600 rounded-xl;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .luxury-card-hover {
+    @apply luxury-card hover:bg-night-700/80 hover:border-gold-400/30;
+  }
+
+  .luxury-card-hover:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-gradient-to-br from-gold-400 to-gold-600 text-night-900 font-semibold px-8 py-3.5 rounded-lg transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed font-display tracking-wide;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.25);
+  }
+
+  .btn-secondary {
+    @apply luxury-card text-gray-100 font-semibold px-8 py-3.5 rounded-lg transition-all duration-300 hover:bg-night-600/80 hover:border-gold-400/40 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed font-display;
+  }
+
+  .btn-ghost {
+    @apply text-gray-300 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:bg-night-700/50 hover:text-gold-400 active:scale-95;
+  }
+
+  /* Input Fields */
+  .input-luxury {
+    @apply luxury-card px-4 py-3.5 w-full text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400/50 transition-all duration-300;
+  }
+
+  /* Select Dropdowns */
+  select {
+    @apply luxury-card px-4 py-3.5 w-full text-gray-100 cursor-pointer;
+    @apply focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400/50;
+    @apply transition-all duration-300;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23d4af37' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    padding-right: 3rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  select:hover {
+    @apply bg-night-700/80 border-gold-400/30;
+  }
+
+  select:focus {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+  }
+
+  select option {
+    @apply bg-night-800 text-gray-100 py-2;
+    font-family: 'Inter', sans-serif;
+  }
+
+  select option:hover,
+  select option:checked {
+    @apply bg-night-700;
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
+  }
+
+  /* Star Rating */
+  .star {
+    @apply text-night-600 cursor-pointer transition-all duration-300 hover:scale-110;
+  }
+
+  .star-filled {
+    @apply text-gold-400;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+  }
+
+  /* Divider */
+  .divider-luxury {
+    @apply h-px my-8;
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.2), transparent);
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium font-display;
+  }
+
+  .badge-gold {
+    @apply bg-gold-400/10 text-gold-400 border border-gold-400/30;
+  }
+
+  .badge-neon {
+    @apply border border-neon-red/30;
+    background-color: rgba(255, 51, 102, 0.125);
+    color: #ff3366;
+  }
+
+  /* Loading Spinner */
+  .spinner {
+    @apply animate-spin rounded-full border-2 border-night-600 border-t-gold-400;
+  }
+
+  /* Glow effect */
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  }
+
+  .glow-neon {
+    box-shadow: 0 0 15px rgba(255, 51, 102, 0.3);
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+
+  .text-neon {
+    text-shadow: 0 0 10px rgba(255, 51, 102, 0.5);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-night-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-night-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(212, 175, 55, 0.3);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(212, 175, 55, 0.3);
+  color: white;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+textarea,
+select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
