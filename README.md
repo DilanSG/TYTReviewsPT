@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌟 Reviewly
+# Reviewly
 
 ### Sistema Inteligente de Gestión de Reseñas y Feedback en Tiempo Real
 
